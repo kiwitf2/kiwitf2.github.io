@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Kiwi Caravan</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ekmas/cs16.css@main/css/cs16.min.css">
+    <link href="../style2.css" rel="stylesheet">
+  </head>
+  <body>
+    <br>
+    <h1>The Kiwi Caravan</h1>
+    <h2>Community Servers for Australian TF2</h2>
+    <br>
+    <div class="cs-tabs">
+      <input
+        class="radiotab"
+        name="tabs"
+        tabindex="1"
+        type="radio"
+        id="tabone"
+        checked="checked"
+      />
+      <label class="label" for="tabone">./tf2</label>
+      <div class="panel" tabindex="1">
+        <h2>Team Fortress 2 Server(s)</h2>
+        <p>Current servers running:</p>
+        <p>kiwi caravan! Doublecross AUS | 24 Maxplayers, Instant Respawn</p>
+        <section>
+          <button
+            type="button"
+            class="cs-btn"
+            onclick="document.querySelector('.doublecross').showModal();"
+          >
+            Connect
+          </button>
+          <dialog class="cs-dialog doublecross">
+            <form method="dialog">
+              <div class="heading">
+                <div class="wrapper">
+                  <div class="icon"></div>
+                  <p class="text">Note</p>
+                </div>
+                <button class="cs-btn close"></button>
+              </div>
+              <div class="content">
+                By connecting to these tf2 servers, you agree to comply with the server rules.
+                <br>
+                <br>
+                If you are having trouble connecting, please copy and paste the following command into your tf2 console.
+                <br>
+                <input type="text" value="connect 51.161.153.190:27015" class="cs-input"/>
+              </div>
+              <menu class="footer-btns">
+                <button class="cs-btn">Cancel</button>
+                <button class="cs-btn" onclick="window.location = 'steam://connect/51.161.153.190:27015'">Connect</button>
+              </menu>
+            </form>
+          </dialog>
+        </section>
+        <p>kiwi caravan! Harvest AUS | 24 Maxplayers, Instant Respawn</p>
+        <section>
+          <button
+            type="button"
+            class="cs-btn"
+            onclick="document.querySelector('.harvest').showModal();"
+          >
+            Connect
+          </button>
+          <dialog class="cs-dialog harvest">
+            <form method="dialog">
+              <div class="heading">
+                <div class="wrapper">
+                  <div class="icon"></div>
+                  <p class="text">Note</p>
+                </div>
+                <button class="cs-btn close"></button>
+              </div>
+              <div class="content">
+                By connecting to these tf2 servers, you agree to comply with the server rules.
+                <br>
+                <br>
+                If you are having trouble connecting, please copy and paste the following command into your tf2 console.
+                <br>
+                <input type="text" value="connect 51.161.153.190:27014" class="cs-input"/>
+              </div>
+              <menu class="footer-btns">
+                <button class="cs-btn">Cancel</button>
+                <button class="cs-btn" onclick="window.location = 'steam://connect/51.161.153.190:27014'">Connect</button>
+              </menu>
+            </form>
+          </dialog>
+        </section>
+        <p>kiwi caravan! Alt Modes AUS | 39 Maxplayers, Instant Respawn (VSH, VIP, FREEZE TAG)</p>
+        <section>
+          <button
+            type="button"
+            class="cs-btn"
+            onclick="document.querySelector('.altmodes').showModal();"
+          >
+            Connect
+          </button>
+          <dialog class="cs-dialog altmodes">
+            <form method="dialog">
+              <div class="heading">
+                <div class="wrapper">
+                  <div class="icon"></div>
+                  <p class="text">Note</p>
+                </div>
+                <button class="cs-btn close"></button>
+              </div>
+              <div class="content">
+                By connecting to these tf2 servers, you agree to comply with the server rules.
+                <br>
+                <br>
+                If you are having trouble connecting, please copy and paste the following command into your tf2 console.
+                <br>
+                <input type="text" value="connect 51.161.153.190:27016" class="cs-input"/>
+              </div>
+              <menu class="footer-btns">
+                <button class="cs-btn">Cancel</button>
+                <button class="cs-btn" onclick="window.location = 'steam://connect/51.161.153.190:27016'">Connect</button>
+              </menu>
+            </form>
+          </dialog>
+        </section>
+      </div>
+      <input
+        class="radiotab"
+        tabindex="2"
+        name="tabs"
+        type="radio"
+        id="tabtwo"
+      />
+      <label class="label" for="tabtwo">./tf2classic</label>
+      <div class="panel" tabindex="2">
+        <h2>TEAM FORTRESS 2 CLASSIC SERVERS</h2>
+        <p>coming soon...
+        <br>
+        <a2>(maybe)</a2>
+        </p>
+      </div>
+      <input
+        class="radiotab"
+        tabindex="3"
+        name="tabs"
+        type="radio"
+        id="tabthree"
+      />
+      <label class="label" for="tabthree">./rules</label>
+      <div class="panel" tabindex="3">
+        <h2>SERVER RULES</h2>
+        <ol>
+          <li>Harassment, sexism, racism, or other forms hate speech will not be tolerated.</li>
+          <li>Please do not discuss or display age-restricted or obscene content via things such as sprays, chat and objectors. This includes text, images, or links featuring nudity, gore, or other graphically disturbing content.</li>
+          <li>Don't pressure anyone into doing anything they aren't comfortable with.</li>
+          <li>Do not self promote or send links in the ingame chat.</li>
+          <li>Do not impersonate people.</li>
+        </ol>
+        <p>If you see something that's against the rules or makes you feel unsafe, let admins know in the discord or via the !calladmin command. We want this server to be a welcoming space!</p>
+      </div>
+    </div>
+    <br>
+    <hr class="cs-hr" />
+    <br>
+    <h2>About The Servers</h2>
+    <p>The Kiwi Caravan is and has been hosted by <a>kiwi</a>, since roughly halfway through 2024.
+    <br>
+    If you would like to join the discord community or help me host the server on Patreon. Check out the social links provided.
+    <br>
+    <button class="cs-btn" onclick="window.open('https://discord.gg/zkpRpXQXbn')">Discord</button>
+    <button class="cs-btn" onclick="window.open('https://patreon.com/kiwitf2')">Patreon</button>
+    </p>
+    <br>
+    <hr class="cs-hr" />
+    <br>
+    <h2>About Me (Kiwi)</h2>
+    <a2>self proclaimed "programming novice"</a2>
+    <p>I started playin tf2 in early 2023 so I'm generally still pretty new to this game!
+    <br>
+    When I'm on tf2 the majority of my time will be spent modding or messin around.
+    <br>
+    If you're interested in the things I've worked on feel free to check out these links!
+    <br>
+    <a href="https://www.github.com/kiwitf2">My Github Page</a> 
+    <br>
+    <a href="https://www.youtube.com/@kiwitf2">My Youtube Channel (probably dead lol)</a>
+    <br>
+    <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3243233501">And play my stupid vsh map!</a>
+    </p>
+    <br>
+    <br>
+    
+    <footer style="text-align:center">
+      Counter-Strike 1.6 css file Made by
+      <a target="_blank" href="http://samke.me" style="color:whitesmoke">Samuel</a>.
+    </footer>
+  </body>
+</html>

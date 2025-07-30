@@ -1,0 +1,28 @@
+body {
+    width: 50%;
+    height: 100vh;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+   }
+a {   
+    color: white;   
+}
+
+a:active {
+    color: white;
+}
+
+a2 {
+    color: rgb(145, 145, 145);
+    font-size: medium;
+    line-height: 0.5;
+}
+
+h2 {
+    line-height: 1;
+}
+
+ol {
+    padding-left: 40px;
+}
