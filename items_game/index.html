@@ -61,6 +61,26 @@
 
     <hr/>
     <button class="cs-btn" onclick="window.location.hash = 'items_heading'">Jump to Items</button>
+    <button class="cs-btn" onclick="this.textContent = 'Amazingly, you were already there.'">Jump to Attributes</button>
+    <button class="cs-btn" onclick="window.location.hash = 'unusual_hats_heading'">Jump to Unusual Hat Effects</button>
+    <button class="cs-btn" onclick="window.location.hash = 'unusual_taunts_heading'">Jump to Unusual Taunt Effects</button>
+    <hr/>
+
+    <h2 id="attribute_heading">ATTRIBUTES</h2>
+
+    <table id="attribute_list">
+        <thead>
+			<tr class="item header">
+				<td>ID</td>
+				<td>Name</td>
+                <td>Attribute Class</td>
+			</tr>
+		</thead>
+    </table>
+
+    <hr/>
+    <button class="cs-btn" onclick="window.location.hash = 'items_heading'">Jump to Items</button>
+    <button class="cs-btn" onclick="window.location.hash = 'attributes_heading'">Jump to Attributes</button>
     <button class="cs-btn" onclick="this.textContent = 'Amazingly, you were already there.'">Jump to Unusual Hat Effects</button>
     <button class="cs-btn" onclick="window.location.hash = 'unusual_taunts_heading'">Jump to Unusual Taunt Effects</button>
     <hr/>
@@ -78,6 +98,7 @@
 
     <hr/>
     <button class="cs-btn" onclick="window.location.hash = 'items_heading'">Jump to Items</button>
+    <button class="cs-btn" onclick="window.location.hash = 'attributes_heading'">Jump to Attributes</button>
     <button class="cs-btn" onclick="window.location.hash = 'unusual_hats_heading'">Jump to Unusual Hat Effects</button>
     <button class="cs-btn" onclick="this.textContent = 'Amazingly, you were already there.'">Jump to Unusual Taunt Effects</button>
     <hr/>
@@ -95,6 +116,7 @@
 
     <hr/>
     <button class="cs-btn" onclick="window.location.hash = 'items_heading'">Jump to Items</button>
+    <button class="cs-btn" onclick="window.location.hash = 'attributes_heading'">Jump to Attributes</button>
     <button class="cs-btn" onclick="window.location.hash = 'unusual_hats_heading'">Jump to Unusual Hat Effects</button>
     <button class="cs-btn" onclick="window.location.hash = 'unusual_taunts_heading'">Jump to Unusual Taunt Effects</button>
     <hr/>
@@ -104,6 +126,7 @@
         const itemList = document.getElementById('item_list');
         const unusualHatList = document.getElementById('unusuals_list_hats');
         const unusualTauntList = document.getElementById('unusuals_list_taunts');
+        const attributeList = document.getElementById('attribute_list');
 
         
         function loadItemsGame(items_game_data)
@@ -127,19 +150,24 @@
                 itemList.appendChild(tr);
             });
 
-            Object.entries(items_game_data.items_game.attribute_controlled_attached_particles.cosmetic_unusual_effects).forEach(([key, value]) => {
+            Object.entries(items_game_data.items_game.attributes).forEach(([key, value]) => {
                 // console.log(key, value);
                 const tr = document.createElement('tr');
-                const itemID = document.createElement('td');
-                itemID.textContent = `${key}`;
+                const attributeID = document.createElement('td');
+                attributeID.textContent = `${key} `;
 
-                const itemName = document.createElement('td');
-                itemName.textContent = `${value.system}`;
+                const attributeName = document.createElement('td');
+                attributeName.textContent = `${value.name}`;
 
-                tr.appendChild(itemID);
-                tr.appendChild(itemName);
-                unusualHatList.appendChild(tr);
+                const attributeClass = document.createElement('td');
+                attributeClass.textContent = `${value.attribute_class}`;
+
+                tr.appendChild(attributeID);
+                tr.appendChild(attributeName);
+                tr.appendChild(attributeClass);
+                attributeList.appendChild(tr);
             });
+
 
             Object.entries(items_game_data.items_game.attribute_controlled_attached_particles.cosmetic_unusual_effects).forEach(([key, value]) => {
                 // console.log(key, value);
@@ -158,14 +186,14 @@
             Object.entries(items_game_data.items_game.attribute_controlled_attached_particles.taunt_unusual_effects).forEach(([key, value]) => {
                 // console.log(key, value);
                 const tr = document.createElement('tr');
-                const itemID = document.createElement('td');
-                itemID.textContent = `${key} `;
+                const effectID = document.createElement('td');
+                effectID.textContent = `${key} `;
 
-                const itemName = document.createElement('td');
-                itemName.textContent = `${value.system}`;
+                const effectName = document.createElement('td');
+                effectName.textContent = `${value.system}`;
 
-                tr.appendChild(itemID);
-                tr.appendChild(itemName);
+                tr.appendChild(effectID);
+                tr.appendChild(effectName);
                 unusualTauntList.appendChild(tr);
             });
 
