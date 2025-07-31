@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ekmas/cs16.css@main/css/cs16.min.css">
+    <link href="../style2.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <p id="instructions">Use a vdf to json parser (when testing i used <a href="https://rgp.io/vdf-parser/">this one</a>) to convert the contents of your items_game.txt file into json. Once you've copied the json chuck that into the textbox
+    below and hit parse.</p>
+        
+    <div id="parse_setup">
+        <input type="text" id="json_input" value="paste your json here!" class="cs-input"/>
+        <button class="cs-btn" id="parse_btn" onclick="parseJsonIntoConstantObject()">parse!</button>
+    </div>
+    <script>
+        function parseJsonIntoConstantObject()
+        {
+            const jsonString = json_input.value;
+            try {
+                const items_game_data = JSON.parse(jsonString);
+                loadItemsGame(items_game_data)
+                parse_setup.style.display = "none"
+                instructions.textContent = "parse sucess!"
+                // console.log(items_game_data)
+            }
+            catch(e){
+                console.log("fail")
+            }
+        }
+    </script>
+
+    <hr/>
+
+    <button class="cs-btn" onclick="this.textContent = 'Amazingly, you were already there.'">Jump to Items</button>
+    <button class="cs-btn" onclick="window.location.hash = 'unusual_hats_heading'">Jump to Unusual Hat Effects</button>
+    <button class="cs-btn" onclick="window.location.hash = 'unusual_taunts_heading'">Jump to Unusual Taunt Effects</button>
+
+
+    <hr/>
+
+    <h2 id="items_heading">ITEMS</h2>
+
+    <!-- <ul id="item-list"></ul> -->
+
+    <table id="item_list">
+        <thead>
+			<tr class="item header">
+				<td>ID</td>
+				<td>Name</td>
+				<td>Classname</td>
+			</tr>
+		</thead>
+    </table>
+
+    <hr/>
+    <button class="cs-btn" onclick="window.location.hash = 'items_heading'">Jump to Items</button>
+    <button class="cs-btn" onclick="this.textContent = 'Amazingly, you were already there.'">Jump to Unusual Hat Effects</button>
+    <button class="cs-btn" onclick="window.location.hash = 'unusual_taunts_heading'">Jump to Unusual Taunt Effects</button>
+    <hr/>
+
+    <h2 id="unusual_hats_heading">HAT UNUSUAL EFFECTS</h2>
+
+    <table id="unusuals_list_hats">
+        <thead>
+			<tr class="item header">
+				<td>ID</td>
+				<td>Name</td>
+			</tr>
+		</thead>
+    </table>
+
+    <hr/>
+    <button class="cs-btn" onclick="window.location.hash = 'items_heading'">Jump to Items</button>
+    <button class="cs-btn" onclick="window.location.hash = 'unusual_hats_heading'">Jump to Unusual Hat Effects</button>
+    <button class="cs-btn" onclick="this.textContent = 'Amazingly, you were already there.'">Jump to Unusual Taunt Effects</button>
+    <hr/>
+
+    <h2 id="unusual_taunts_heading">TAUNT UNUSUAL EFFECTS</h2>
+
+    <table id="unusuals_list_taunts">
+        <thead>
+			<tr class="item header">
+				<td>ID</td>
+				<td>Name</td>
+			</tr>
+		</thead>
+    </table>
+
+    <hr/>
+    <button class="cs-btn" onclick="window.location.hash = 'items_heading'">Jump to Items</button>
+    <button class="cs-btn" onclick="window.location.hash = 'unusual_hats_heading'">Jump to Unusual Hat Effects</button>
+    <button class="cs-btn" onclick="window.location.hash = 'unusual_taunts_heading'">Jump to Unusual Taunt Effects</button>
+    <hr/>
+
+    <script>
+
+        const itemList = document.getElementById('item_list');
+        const unusualHatList = document.getElementById('unusuals_list_hats');
+        const unusualTauntList = document.getElementById('unusuals_list_taunts');
+
+        
+        function loadItemsGame(items_game_data)
+        {
+
+            Object.entries(items_game_data.items_game.items).forEach(([key, value]) => {
+                // console.log(key, value);
+                const tr = document.createElement('tr');
+                const itemID = document.createElement('td');
+                itemID.textContent = `${key}`;
+
+                const itemName = document.createElement('td');
+                itemName.textContent = `${value.name}`;
+
+                const itemClassname = document.createElement(`td`);
+                itemClassname.textContent = `${value.item_class}`;
+
+                tr.appendChild(itemID);
+                tr.appendChild(itemName);
+                tr.appendChild(itemClassname);
+                itemList.appendChild(tr);
+            });
+
+            Object.entries(items_game_data.items_game.attribute_controlled_attached_particles.cosmetic_unusual_effects).forEach(([key, value]) => {
+                // console.log(key, value);
+                const tr = document.createElement('tr');
+                const itemID = document.createElement('td');
+                itemID.textContent = `${key}`;
+
+                const itemName = document.createElement('td');
+                itemName.textContent = `${value.system}`;
+
+                tr.appendChild(itemID);
+                tr.appendChild(itemName);
+                unusualHatList.appendChild(tr);
+            });
+
+            Object.entries(items_game_data.items_game.attribute_controlled_attached_particles.cosmetic_unusual_effects).forEach(([key, value]) => {
+                // console.log(key, value);
+                const tr = document.createElement('tr');
+                const itemID = document.createElement('td');
+                itemID.textContent = `${key} `;
+
+                const itemName = document.createElement('td');
+                itemName.textContent = `${value.system}`;
+
+                tr.appendChild(itemID);
+                tr.appendChild(itemName);
+                unusualHatList.appendChild(tr);
+            });
+
+            Object.entries(items_game_data.items_game.attribute_controlled_attached_particles.taunt_unusual_effects).forEach(([key, value]) => {
+                // console.log(key, value);
+                const tr = document.createElement('tr');
+                const itemID = document.createElement('td');
+                itemID.textContent = `${key} `;
+
+                const itemName = document.createElement('td');
+                itemName.textContent = `${value.system}`;
+
+                tr.appendChild(itemID);
+                tr.appendChild(itemName);
+                unusualTauntList.appendChild(tr);
+            });
+
+            console.log(items_game_data)
+        }
+
+    </script>
+
+  </body>
+</html>
