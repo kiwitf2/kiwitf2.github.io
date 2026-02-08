@@ -135,13 +135,43 @@
         type="radio"
         id="tabtwo"
       />
-      <label class="label" for="tabtwo">./tf2classic</label>
+      <label class="label" for="tabtwo">./tf2classified</label>
       <div class="panel" tabindex="2">
-        <h2>TEAM FORTRESS 2 CLASSIC SERVERS</h2>
-        <p>coming soon...
-        <br>
-        <a2>(maybe)</a2>
-        </p>
+        <h2>Team Fortress 2 Classified Servers</h2>
+        <p>Current servers running:</p>
+        <p>kiwi caravan! TF2 Classified AUS | 24 Maxplayers, Map Rotation</p>
+        <section>
+          <button
+            type="button"
+            class="cs-btn"
+            onclick="document.querySelector('.doublecross').showModal();"
+          >
+            Connect
+          </button>
+          <dialog class="cs-dialog doublecross">
+            <form method="dialog">
+              <div class="heading">
+                <div class="wrapper">
+                  <div class="icon"></div>
+                  <p class="text">Note</p>
+                </div>
+                <button class="cs-btn close"></button>
+              </div>
+              <div class="content">
+                By connecting to these tf2 servers, you agree to comply with the server rules.
+                <br>
+                <br>
+                If you are having trouble connecting, please copy and paste the following command into your tf2 console.
+                <br>
+                <input type="text" value="connect 51.161.153.190:27015" class="cs-input"/>
+              </div>
+              <menu class="footer-btns">
+                <button class="cs-btn">Cancel</button>
+                <button class="cs-btn" onclick="window.location = 'steam://connect/51.161.153.190:27018'">Connect</button>
+              </menu>
+            </form>
+          </dialog>
+        </section>
       </div>
       <input
         class="radiotab"
